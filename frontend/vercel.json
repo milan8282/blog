@@ -1,6 +1,25 @@
 {
   "rewrites": [
     {
+      "source": "/sitemap.xml",
+      "destination": "https://YOUR-BACKEND.onrender.com/sitemap.xml"
+    },
+    {
+      "source": "/robots.txt",
+      "destination": "https://YOUR-BACKEND.onrender.com/robots.txt"
+    },
+    {
+      "source": "/blog/:slug",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*(WhatsApp|facebookexternalhit|Facebot|Twitterbot|LinkedInBot|Slackbot|TelegramBot|Discordbot|Googlebot|bingbot).*"
+        }
+      ],
+      "destination": "https://YOUR-BACKEND.onrender.com/og/blog/:slug"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
