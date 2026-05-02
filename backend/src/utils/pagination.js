@@ -1,0 +1,16 @@
+export const getPagination = (query) => {
+  const page = Math.max(parseInt(query.page, 10) || 1, 1);
+  const limit = Math.max(parseInt(query.limit, 10) || 10, 1);
+  const skip = (page - 1) * limit;
+
+  return { page, limit, skip };
+};
+
+export const getPaginationMeta = ({ total, page, limit }) => {
+  return {
+    total,
+    page,
+    limit,
+    totalPages: Math.ceil(total / limit),
+  };
+};
